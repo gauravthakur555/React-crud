@@ -77,8 +77,11 @@ const Crud = () => {
                             <tr>
                                 <td>{item.firstName}</td>
                                 <td>{item.lastName}</td>
-                                <td><button onClick={handleDelete(index)}>Delete</button></td>
-                                <td><button onClick={handleEdit(index)}>Edit</button></td>
+                                <td><Button value='del' onClick={()=>handleDelete(index)}/></td>
+                                <td><Button value='edit' onClick={()=>handleEdit(index)}/></td>
+
+                                {/* <td><button onClick={handleDelete(index)}>Delete</button></td>
+                                <td><button onClick={handleEdit(index)}>Edit</button></td> */}
 
 
                             </tr>
