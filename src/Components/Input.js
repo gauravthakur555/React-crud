@@ -8,7 +8,7 @@ const Input = ({addData}) => {
         addData(title);
         setTitle('');   
     }
-
+ 
   return (
     <div>
       <form onSubmit={handle}>
