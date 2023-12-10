@@ -3,8 +3,7 @@ import Input from './Input';
 
 const Data = () => {
     const [check, setCheck]=useState([
-        {name:"Gaurav",id:1},
-        {name: "Abha",id:2}
+        {name:"Gaurav",id:1}
     ]);
     const addData=(name,id)=>{
         setCheck([...check,{name,id}])
