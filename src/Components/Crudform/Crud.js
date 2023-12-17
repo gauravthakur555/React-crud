@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import InputField from '../InputField/InputField';
 import Button from '../Button/Button';
+import './Crud.css'
 
 const Crud = () => {
     const [todo, setTodo] = useState([]);
@@ -16,6 +17,7 @@ const Crud = () => {
     }
 
     const handleSubmit = (e) => {
+        if (!data.firstName && !data.lastName) return;
         e.preventDefault();
         const newtodo = [...todo, data];
         setTodo(newtodo);
@@ -31,8 +33,9 @@ const Crud = () => {
         setData(todo[index]);
     }
 
-    const updateItem = (e, index) => {
-        e.preventDefault();
+    const updateItem = (index) => {
+        if (!data.firstName && !data.lastName) return;
+        // e.preventDefault();
         todo.splice(index, 1, data);
         setTodo([...todo]);
         setData({ firstName: '', lastName: '' })
@@ -48,40 +51,53 @@ const Crud = () => {
     return (
         <>
             <div className='container'>
-                <InputField
-                    value={data.firstName}
-                    name='firstName'
-                    placeholder='firstName'
-                    onChange={handles}
-                />
-
-                <InputField
-                    value={data.lastName}
-                    name='lastName'
-                    placeholder='lastName'
-                    onChange={handles}
-                />
+                <h5>First Name:
+                    <InputField
+                        value={data.firstName}
+                        name='firstName'
+                        placeholder='firstName'
+                        onChange={handles}
+                    />
+                </h5>
+                <h5>Last Name:
+                    <InputField
+                        value={data.lastName}
+                        name='lastName'
+                        placeholder='lastName'
+                        onChange={handles}
+                    />
+                </h5>
                 <Button value="Submit" onClick={handleSubmit} />
-                <Button value="Update" onClick={updateItem} />
                 <Button value="Clear" onClick={clearInput} />
+
+                
 
 
 
 
 
             </div>
-            {todo.map((item, index) => {
+            <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Action</th>
+  </tr>
+            {todo.map((item, index, value) => {
                 return (
                     <div key={index}>
                         <table key={index}>
                             <tr>
-                                <td>{item.firstName}</td>
-                                <td>{item.lastName}</td>
-                                <td><Button value='del' onClick={()=>handleDelete(index)}/></td>
-                                <td><Button value='edit' onClick={()=>handleEdit(index)}/></td>
+                                <table>
+                                    <td>{item.firstName}</td>
+                                    <td>{item.lastName}</td>
+                                    <td><Button value='del' onClick={() => handleDelete(index)} /></td>
+                                    <td><Button value='edit' onClick={() => handleEdit(index)} /></td>
+                                    <td><Button value='update' onClick={() => updateItem(index)} /></td>
+                                </table>
 
-                                {/* <td><button onClick={handleDelete(index)}>Delete</button></td>
-                                <td><button onClick={handleEdit(index)}>Edit</button></td> */}
+
+
+
 
 
                             </tr>

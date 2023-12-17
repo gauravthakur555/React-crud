@@ -4,7 +4,7 @@ ul {
     padding: 0;
     overflow: hidden;
     border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
+    /* background-color: #549f9a; */
   }
   
   li {
@@ -13,17 +13,36 @@ ul {
   
   li a {
     display: block;
-    color: #666;
+    /* color:black; */
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
   
   li a:hover:not(.active) {
-    background-color: #ddd;
+    background-color:rgb(210, 187, 111);
+    border-radius: 9px;
   }
   
   li a.active {
-    color: white;
-    background-color: #04AA6D;
+    color: rgb(233, 181, 11);
+    /* background-color: #04AA6D; */
+  }
+  #dark{
+    background-color: rgb(14, 12, 12);
+    color: #fff  !important;
+  }
+  #dark li a{
+    background-color: rgb(14, 12, 12);
+    color: #fff  !important;
+  }
+  
+  #light{
+    background-color: #fff;
+    color: black;
+  }
+
+  #light li a{
+    background-color: #fff;
+    color: black !important;
   }
